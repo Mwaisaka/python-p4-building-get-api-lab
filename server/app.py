@@ -47,8 +47,8 @@ def baked_goods_by_price():
 def most_expensive_baked_good():
     
     most_expensive=BakedGood.query.order_by(BakedGood.price.desc()).limit(1).first()
-    most_expensive_serialized=most_expensive.to_dict()
-    return make_response(jsonify(most_expensive_serialized),200)
+    most_expensive_dict=most_expensive.to_dict()
+    return make_response(jsonify(most_expensive_dict),200)
 
 if __name__ == '__main__':
     app.run(port=5555, debug=True)
